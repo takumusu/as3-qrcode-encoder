@@ -32,16 +32,16 @@ package org.qrcode
 			
 		}
 		
-		public function encode(content:String):void{
+		public function encode(content:String, pixelPerPoint:int = 4, outerFrame:int = 4):void{
 			this.version = 1;
 			this.text = content;
 			encodeString(true);
-			encodeBitmap();
+			encodeBitmap(pixelPerPoint, outerFrame);
 		}
 		
 		
-		private function encodeBitmap():void{
-			this.bitmapData = QRImage.image(this.data);
+		private function encodeBitmap(pixelPerPoint:int = 4, outerFrame:int = 4):void{
+			this.bitmapData = QRImage.image(this.data, pixelPerPoint, outerFrame);
 		}
 		
 		private function encodeString(casesensitive:Boolean = true):void{
